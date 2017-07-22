@@ -18,7 +18,7 @@ class BotHandler:
 
     def get_last_update(self):
         updates = self.get_updates()
-		if updates > 0:
+		if len(updates) > 0:
 		    last_update = updates[-1]
 		else:
 		    last_update = updates[len(updates)]
