@@ -1,5 +1,6 @@
 import requests
 import datetime
+import sys
 
 
 class BotHandler:
@@ -7,7 +8,6 @@ class BotHandler:
     def __init__(self, token):
         self.token = token
         self.api_url = 'https://api.telegram.org/bot{}/'.format(token)
-        #  448262168:AAGdAYj60ZBalxJrl_-mcb1iyic8L3I9QJ0
 
     def get_updates(self, offset=None, timeout=30):
         method = 'getUpdates'
@@ -26,8 +26,8 @@ class BotHandler:
         payload = {'chat_id': chat_id, 'text': text}
         response = requests.post(self.api_url + method, data=payload)
         return response
-        
-token = '448262168:AAGdAYj60ZBalxJrl_-mcb1iyic8L3I9QJ0'
+
+token = sys.argv[1]
 greet_bot = BotHandler(token)
 greetings = ('hello', 'bonjour', 'privet')
 now = datetime.datetime.now()
