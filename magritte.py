@@ -18,7 +18,10 @@ class BotHandler:
 
     def get_last_update(self):
         updates = self.get_updates()
-        last_update = updates[-1]
+		if updates > 0:
+			last_update = updates[-1]
+		else:
+			last_update = updates[len(updates)]
         return last_update
 
     def send_message(self, chat_id, text):
